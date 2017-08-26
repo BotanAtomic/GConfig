@@ -3,3 +3,8 @@ database.password= pass:String
 database.port=3306:Integer
 test=true:Boolean
 character=o:char
+
+MainUser {
+    class:org.graviton.user.User
+    constructor(user123:String,password123:String,11:int)
+}

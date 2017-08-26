@@ -1,8 +1,10 @@
 package org.graviton.configuration;
 
+import org.graviton.reader.ConfigurationReader;
 import org.graviton.writer.ConfigurationWriter;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -36,9 +38,12 @@ public class ConfigurationBuilder {
     public void build() {
         new File(exportPath).mkdirs();
         try {
-            Path path = Files.createFile(Paths.get(exportPath + "/" + exportName));
+            File file = Paths.get(exportPath + "/" + exportName).toFile();
+            if (file.exists())
+                Files.delete(Paths.get(file.getPath()));
+            Path path = Files.createFile(Paths.get(file.getPath()));
             Files.write(path, new ConfigurationWriter(new ConfigurationReader(new File(this.path)), packageName).toString().getBytes());
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

@@ -14,7 +14,7 @@ public class Variable {
         this.type = parseType(type);
     }
 
-    public String getterName(String name) {
+    private String getterName(String name) {
         StringBuilder finalName = new StringBuilder();
         AtomicBoolean capitalizeNext = new AtomicBoolean(false);
         IntStream.range(0, name.length()).forEach(i -> {
@@ -31,6 +31,7 @@ public class Variable {
             case "string":
                 openValue = '\"';
                 break;
+            case "character":
             case "char":
                 openValue = '\'';
                 break;

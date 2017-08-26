@@ -1,5 +1,7 @@
 package org.graviton.configuration;
 
+import org.graviton.user.User;
+
 public class Configuration {
 
     private final static String databaseUsername = "test";
@@ -7,6 +9,7 @@ public class Configuration {
     private final static Integer databasePort = 3306;
     private final static Boolean test = true;
     private final static char character = 'o';
+    private final static User mainUser = new User("user123", "password123", 11);
 
 
     public static String getDatabaseUsername() {
