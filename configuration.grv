@@ -1,0 +1,5 @@
+database.username= test:String
+database.password= pass:String
+database.port=3306:Integer
+test=true:Boolean
+character=o:char
